@@ -9,7 +9,7 @@ if(length(args)==0)stop("No file has been specified!")
 input<-NA
 output<-NA
 score<-"FragmenterScore"
-
+readTable=F
 for(arg in args)
 {
   argCase<-strsplit(x = arg,split = "=")[[1]][1]
@@ -28,10 +28,21 @@ for(arg in args)
   {
     score=as.character(value)
   }
-  
+if(argCase=="readTable")
+{
+readTable=as.logical(value)
 }
 
+  
+}
+metfragRes<-NA
+if(readTable==T)
+{
+metfragRes<-read.table(file = input,header = T,sep = sepScore,quote="",stringsAsFactors = F,comment.char = "")
+}
+else{
 metfragRes<-read.csv(input)
+}
 CompoundNameCol<-""
 if("CompoundName"%in%colnames(metfragRes))
 {
