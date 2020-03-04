@@ -38,7 +38,7 @@ readTable=as.logical(value)
 metfragRes<-NA
 if(readTable==T)
 {
-metfragRes<-read.table(file = input,header = T,sep = sepScore,quote="",stringsAsFactors = F,comment.char = "")
+metfragRes<-read.table(file = input,header = T,sep = "\t",quote="",stringsAsFactors = F,comment.char = "")
 }
 else{
 metfragRes<-read.csv(input)
