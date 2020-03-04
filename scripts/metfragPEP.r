@@ -39,10 +39,10 @@ metfragRes<-NA
 if(readTable==T)
 {
 metfragRes<-read.table(file = input,header = T,sep = "\t",quote="",stringsAsFactors = F,comment.char = "")
-}
-else{
+}else{
 metfragRes<-read.csv(input)
 }
+
 CompoundNameCol<-""
 if("CompoundName"%in%colnames(metfragRes))
 {
